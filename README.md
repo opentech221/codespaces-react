@@ -1,70 +1,187 @@
-# GitHub Codespaces ♥️ React
+# 🌐 EcoSystem OC - Plateforme Écosystème Communautaire
 
-Welcome to your shiny new Codespace running React! We've got everything fired up and running for you to explore React.
+> **Plateforme numérique pour la gestion transparente des interactions entre organisations communautaires et partenaires**
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+Cette plateforme permet de gérer les interactions et partenariats entre les associations/organisations communautaires/ONG d'une part et les collectivités locales/autorités/entreprises/sponsors d'autre part, en mettant l'accent sur la **transparence** dans toutes les interactions.
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+## 🎯 Objectif du Projet
 
-This project was bootstrapped for you with [Vite](https://vitejs.dev/).
+Créer un écosystème numérique qui facilite et sécurise les relations entre :
+- **Acteurs de développement** : Associations, ONG, organisations communautaires
+- **Partenaires/Sponsors** : Collectivités locales, entreprises, autorités, investisseurs
 
-## Available Scripts
+## 🏗️ Architecture de la Solution
 
-In the project directory, you can run:
+### **Backend - API Flask**
+- **Framework** : Flask 3.1.1
+- **Base de données** : PostgreSQL
+- **Authentification** : JWT (JSON Web Tokens)
+- **API** : REST avec 14 entités de données
+- **Port** : 5000
 
-### `npm start`
+### **Frontend - Interface React**
+- **Framework** : React 18+ avec Vite
+- **Routage** : React Router Dom
+- **Authentification** : Contexte React + JWT
+- **Styling** : CSS modules
+- **Port** : 3000
 
-We've already run this for you in the `Codespaces: server` terminal window below. If you need to stop the server for any reason you can just run `npm start` again to bring it back online.
+### **Base de Données**
+- **Type** : PostgreSQL
+- **Entités** : 14 modèles (User, Organization, Project, Partner, etc.)
+- **Données de test** : Organisations, projets, transactions, utilisateurs
 
-Runs the app in the development mode.\
-Open [http://localhost:3000/](http://localhost:3000/) in the built-in Simple Browser (`Cmd/Ctrl + Shift + P > Simple Browser: Show`) to view your running application.
+## 🚀 Installation et Démarrage
 
-The page will reload automatically when you make changes.\
-You may also see any lint errors in the console.
+### Prérequis
+- Python 3.12+
+- Node.js 18+
+- PostgreSQL
+- Git
 
-### `npm test`
+### 1. Cloner le repository
+```bash
+git clone https://github.com/opentech221/codespaces-react.git
+cd codespaces-react
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. Configuration Backend (Flask)
+```bash
+cd backend
 
-### `npm run build`
+# Installer les dépendances Python
+pip install flask flask-sqlalchemy flask-cors python-dotenv psycopg2-binary pyjwt werkzeug
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Configurer PostgreSQL (créer la base 'plateforme_db')
+createdb plateforme_db
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Lancer le serveur Flask
+python3 app.py
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. Configuration Frontend (React)
+```bash
+# À la racine du projet
+npm install
 
-## Learn More
+# Lancer le serveur de développement
+npm start
+```
 
-You can learn more in the [Vite documentation](https://vitejs.dev/guide/).
+## 🔐 Comptes de Test
 
-To learn Vitest, a Vite-native testing framework, go to [Vitest documentation](https://vitest.dev/guide/)
+| Rôle | Email | Mot de passe | Description |
+|------|-------|--------------|-------------|
+| **Admin OC** | admin@oc.com | password123 | Administrateur de la plateforme |
+| **Partenaire** | partenaire@test.com | password123 | Sponsor/Investisseur |
+| **Citoyen** | citoyen@test.com | password123 | Bénéficiaire/Membre communauté |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📊 Données de Test Disponibles
 
-### Code Splitting
+- **4 utilisateurs** avec différents rôles
+- **3 organisations** : Association Éducation, ONG Santé, Coopérative Agricole
+- **4 projets** : École Numérique, Vaccination Mobile, Marché Bio, Bibliothèque
+- **6 transactions financières** avec traçabilité complète
+- **Messages et feedbacks** pour démonstration des interactions
 
-This section has moved here: [https://sambitsahoo.com/blog/vite-code-splitting-that-works.html](https://sambitsahoo.com/blog/vite-code-splitting-that-works.html)
+## 🌟 Fonctionnalités Principales
 
-### Analyzing the Bundle Size
+### ✅ **Gestion des Organisations**
+- Profils complets des associations/ONG
+- Statuts juridiques et certifications
+- Ressources et membres
 
-This section has moved here: [https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer](https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer)
+### ✅ **Gestion des Projets**
+- Création et suivi de projets
+- Budgets et financements
+- Activités et livrables
 
-### Making a Progressive Web App
+### ✅ **Gestion des Partenariats**
+- Profils des sponsors/partenaires
+- Historique des collaborations
+- Évaluations et feedbacks
 
-This section has moved here: [https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf](https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf)
+### ✅ **Transparence Financière**
+- Traçabilité des transactions
+- Rapports de dépenses
+- Justificatifs et documents
 
-### Advanced Configuration
+### ✅ **Communication Sécurisée**
+- Messagerie interne
+- Notifications automatiques
+- Historique des échanges
 
-This section has moved here: [https://vitejs.dev/guide/build.html#advanced-base-options](https://vitejs.dev/guide/build.html#advanced-base-options)
+## 🛠️ Structure du Projet
 
-### Deployment
+```
+codespaces-react/
+├── backend/                 # API Flask
+│   ├── app.py              # Point d'entrée Flask
+│   ├── models.py           # Modèles SQLAlchemy
+│   ├── routes.py           # Endpoints API
+│   ├── database.py         # Configuration DB
+│   ├── populate_db.py      # Script de peuplement
+│   └── create_test_users.py
+├── src/                    # Application React
+│   ├── components/         # Composants React
+│   ├── contexts/          # Contextes (Auth)
+│   ├── services/          # Services API
+│   └── App.jsx            # Composant principal
+├── public/                # Fichiers statiques
+└── docs/                  # Documentation PDF
+```
 
-This section has moved here: [https://vitejs.dev/guide/build.html](https://vitejs.dev/guide/build.html)
+## 🔧 API Endpoints Principaux
 
-### Troubleshooting
+| Méthode | Endpoint | Description |
+|---------|----------|-------------|
+| `POST` | `/auth/login` | Authentification utilisateur |
+| `POST` | `/auth/register` | Inscription utilisateur |
+| `GET` | `/organizations` | Liste des organisations |
+| `GET` | `/projects` | Liste des projets |
+| `GET` | `/partners` | Liste des partenaires |
+| `GET` | `/transactions` | Historique financier |
+| `GET` | `/health` | Statut de l'API |
 
-This section has moved here: [https://vitejs.dev/guide/troubleshooting.html](https://vitejs.dev/guide/troubleshooting.html)
+## 🔗 Accès à la Plateforme
+
+- **Interface utilisateur** : http://localhost:3000
+- **API Backend** : http://localhost:5000
+- **Test de connexion** : http://localhost:3000/test
+- **Page de connexion** : http://localhost:3000/login
+
+## 📚 Documentation
+
+La documentation complète du projet inclut :
+- **Cahier des charges** détaillé
+- **MVP** (Minimum Viable Product)
+- **Schéma de base de données**
+- **Maquettes d'interface**
+- **Stratégie de lancement**
+- **Plan de suivi**
+
+## 🤝 Contribution
+
+1. Fork le projet
+2. Créer une branche feature (`git checkout -b feature/nouvelle-fonctionnalite`)
+3. Commit les changements (`git commit -m 'Ajout nouvelle fonctionnalité'`)
+4. Push vers la branche (`git push origin feature/nouvelle-fonctionnalite`)
+5. Ouvrir une Pull Request
+
+## 📄 License
+
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+
+## 👥 Équipe
+
+- **Développement** : OpenTech221
+- **Conception** : Équipe EcoSystem OC
+- **Support** : GitHub Copilot
+
+---
+
+### 🚀 **Status : Production Ready**
+
+La plateforme est entièrement fonctionnelle avec backend Flask, frontend React, base de données peuplée et prête pour déploiement en production.
+
+**Repository** : https://github.com/opentech221/codespaces-react
